@@ -31,7 +31,7 @@ function checkEmail(input) {
 }
 ///Password matching check
 function checkPassword(input) {
-    if (input.value === password.value) {
+    if (input.value === password.value && input.value !== "") {
         showSucces(input)
     } else {
         showError(input, "Confirm Password and Password are not same")
@@ -58,8 +58,6 @@ function getFieldName(input) {
 function checkLength(input, min, max) {
     if (input.value.length >= min && input.value.length <= max) {
         showSucces(input)
-    } else if (input.value.length === 0) {
-        showError(input, `${getFieldName(input)} is required`)
     } else {
         showError(input, `The length of ${getFieldName(input)} must be between ${min} and ${max}`)
     }
